@@ -20,7 +20,9 @@ class TestController{
 
     async takeUserData(req, res, next){
         try{
-
+            const { name, lastName } = req.body;
+            console.log(`${name} <===> ${lastName}`);
+            res.json({ name, lastName });
         }catch(err){
             next(err);
         }
