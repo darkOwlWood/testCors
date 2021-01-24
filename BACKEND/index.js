@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 const app = express();
 const { config } = require('./config');
 
@@ -10,6 +11,7 @@ app.use(cors({
     credentials: true,
 }));
 app.use(express.json());
+app.use(cookieParser(config.cookieSecret));
 
 app.get('/',(req, res, next) => {
     res.send(`${config.protocol}://${config.frontend}`);

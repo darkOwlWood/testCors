@@ -9,9 +9,19 @@ const Hello = () => {
    const [lastName, setLastName] = useState(''); 
    const [dataResult, setDataResult] = useState('');
 
-    const handleClick = async () => {
+    const senData = async () => {
         try{
-            const resp = await axios.post('https://test-cors-8v4xbpg10.vercel.app/test/',{ name, lastName },{ withCredentials:true });
+            const resp = await axios.post('https://test-cors-three.vercel.app/test/',{ name, lastName },{ withCredentials:true });
+            console.log(resp.data);
+            setDataResult(resp.data);
+        }catch(err){
+            console.error(`=>>${err}`);
+        }
+    }
+
+    const getCookie = async () => {
+        try{
+            const resp = await axios.get('https://test-cors-three.vercel.app/test/gookie',{ withCredentials:true });
             console.log(resp.data);
             setDataResult(resp.data);
         }catch(err){
@@ -25,7 +35,8 @@ const Hello = () => {
                 <div className="form">
                     <input type="text" onChange={(event) => setName(event.target.value)}/>
                     <input type="text" onChange={(event) => setLastName(event.target.value)}/>
-                    <button onClick={handleClick} >Enviar</button>
+                    <button onClick={senData} >Enviar</button>
+                    <button onClick={getCookie}>Ask</button>
                 </div>
                 <div className="resp">
                     result: { dataResult.name } | { dataResult.lastName }

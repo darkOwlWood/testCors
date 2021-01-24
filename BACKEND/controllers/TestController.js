@@ -27,6 +27,16 @@ class TestController{
             next(err);
         }
     }
+
+    async setCookie(req, res, next){
+        try{
+            res
+                .cookie('data','digimon 4',{ secure:true, sameSite:'none' })
+                .send('ready');
+        }catch(err){
+            next(err);
+        }
+    }
 }
 
 module.exports = TestController;

@@ -8,6 +8,7 @@ const testRoute = (app) => {
 
     router.get('/',testController.greetUser);
     router.post('/',testController.takeUserData);
+    router.get('/gookie',testController.setCookie);
 };
 
 module.exports = {
