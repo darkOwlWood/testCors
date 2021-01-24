@@ -11,7 +11,7 @@ const Hello = () => {
 
     const handleClick = async () => {
         try{
-            const resp = await axios.post('http://localhost:8088/test/',{ name, lastName },{ withCredentials:true });
+            const resp = await axios.post('https://test-cors-8v4xbpg10.vercel.app/test/',{ name, lastName },{ withCredentials:true });
             console.log(resp.data);
             setDataResult(resp.data);
         }catch(err){
