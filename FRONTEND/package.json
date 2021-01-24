@@ -4,6 +4,7 @@
   "description": "",
   "main": "webpack.config.dll.js",
   "scripts": {
+    "build:production": "webpack --mode production --config webpack.config.dll.js && webpack --mode production"
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
